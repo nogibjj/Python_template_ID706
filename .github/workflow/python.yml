@@ -18,19 +18,19 @@ jobs: # Key is used to define one or more individual jobs that make up the workf
     steps: # steps key is used to define a sequence of individual tasks or 
            # steps that should be executed as part of a job (init_build) in your workflow.
            # steps are executed sequentially
-      - name: Checkout code # step name 
-        uses: actions/checkout@v2 #checks out (clones) the source code of your GitHub repo into the runner's workspace (built-in Action)
+    - name: Checkout code # step name 
+      uses: actions/checkout@v2 #checks out (clones) the source code of your GitHub repo into the runner's workspace (built-in Action)
                                   # The "uses" key specifies which GitHub Action or action template should be used for this step
      # if multi line is used do (note | is used): 
       #name: Build and Test
         #run: |
           #make build
           #make test
-      - name: Install dependencies
-        run: make install
+    - name: Install dependencies
+      run: make install
 
-      - name: Lint 
-        run: make lint
+    - name: Lint 
+      run: make lint
         # Linting is the process of automatically analyzing source code to find and flag 
         # programming errors, bugs, stylistic issues, and other potential problems 
         # Can flag security hazards like SQL injection etc... as well
@@ -38,15 +38,15 @@ jobs: # Key is used to define one or more individual jobs that make up the workf
         # In JavaScript, ESLint is widely used.
         # In C/C++, cppcheck and ClangTidy are common choices.
       
-      - name: Format
-        run: make format
+    - name: Format
+      run: make format
         # applies consistent and standardized style to your code. 
         # Often uses "black" in python;
         # "Prettier for Javascript"
         # "ClangFormat" for C/C++
       
-      - name: Test
-        run: make test
+    - name: Test
+      run: make test
         # run tests on your codebase
 
       
