@@ -1,10 +1,11 @@
-name: python
+name: cicd
 
 on: #on key is used to specify the events that trigger the workflow
   push: #event type 
     branches: [ 'main', 'master' ]  
   pull_request: #event type 
     branches: [ main', 'master' ] 
+  workflow_dispatch:
   #schedule: Triggered based on a scheduled time.
     #- cron: '0 0 * * *'
 
