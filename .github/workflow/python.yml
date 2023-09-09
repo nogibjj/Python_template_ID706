@@ -18,14 +18,18 @@ jobs: # Key is used to define one or more individual jobs that make up the workf
     steps: # steps key is used to define a sequence of individual tasks or 
            # steps that should be executed as part of a job (init_build) in your workflow.
            # steps are executed sequentially
-      - name: Checkout code # step name 
-        uses: actions/checkout@v2 #checks out (clones) the source code of your GitHub repo into the runner's workspace (built-in Action)
+       
+      - uses: actions/checkout@v2 #checks out (clones) the source code of your GitHub repo into the runner's workspace (built-in Action)
                                   # The "uses" key specifies which GitHub Action or action template should be used for this step
      # if multi line is used do (note | is used): 
       #name: Build and Test
         #run: |
           #make build
           #make test
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
       - name: Install dependencies
         run: make install
 
