@@ -21,9 +21,15 @@ def find_std(df):
     return formatted_std
 
 def create_graph(df):
-    x = df['School Country']
-    y = df['Loan Amount(in USD)']
-    plt.plot(x,y)
+
+    country_expenses = df.groupby('School Country')['Loan Amount(in USD)'].sum().reset_index()
+    plt.figure(figsize=(12, 6))
+    plt.bar(country_expenses['School Country'], country_expenses['Loan Amount(in USD)'], color='blue')
+    plt.xlabel('School Country')
+    plt.ylabel('Total Expenses (in USD)')
+    plt.title('Total Expenses by Country')
+    plt.xticks(rotation=90)  
+    plt.tight_layout()
     plt.savefig("plot.png")
     
 
