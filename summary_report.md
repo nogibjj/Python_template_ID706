@@ -3,8 +3,11 @@ Since early 2000s Mongolain government started providing tuition assistant progr
 Recently, the high percentage of people who don't follow through with the contract obligation became a huge social issue in Mongolia. In this report, we take a look the what the mean, median of the student loan amounts were as well as the standard deviation 
 
 Mean: $117,340.00
+
 Median: $116,481.00
+
 Standard deviation: $54,692.00
+
 
 On average, the mongolian government have provided $117K assistant to a student, the standard deviation being close to $55K. 
 
