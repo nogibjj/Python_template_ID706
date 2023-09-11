@@ -1,16 +1,26 @@
 import unittest
-from main import add
+from main import find_mean,find_median, find_std
+import pandas as pd
+import locale 
 
+data = {'Loan Amount(in USD)': [1000, 2000, 3000, 4000, 5000]}
+df = pd.DataFrame(data)
 
 class TestSumFunction(unittest.TestCase):
-    def test_sum_positive_numbers(self):
-        self.assertEqual(add(1, 2), 3)
-
-    def test_sum_negative_numbers(self):
-        self.assertEqual(add(-1, -2), -3)
-
-    def test_sum_mixed_numbers(self):
-        self.assertEqual(add(1, -2), -1)
+    def test_stats(self):
+        data = {'Loan Amount(in USD)': [1000, 2000, 3000, 4000, 5000]}
+        df = pd.DataFrame(data)
+        expected_mean = '$3,000.00'
+        expected_median = '$3,000.00'
+        expected_std =  '$1,581.00'
+        mean_result = find_mean(df)
+        median_result = find_median(df)
+        std_result = find_std(df)
+        self.assertEqual(mean_result, expected_mean)
+        self.assertEqual(median_result, expected_median)
+        self.assertEqual(std_result, expected_std)
+        
+        
 
 
 if __name__ == "__main__":
