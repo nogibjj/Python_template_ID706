@@ -30,7 +30,7 @@ def create_graph(df):
     plt.title('Total Expenses by Country')
     plt.xticks(rotation=90)  
     plt.tight_layout()
-    plt.savefig("plot.png")
+    plt.savefig('total_expenses_by_country.png')
     
 
 
