@@ -21,16 +21,17 @@ def find_std(df):
     formatted_std = locale.currency(std, grouping=True)
     return formatted_std
 
-def currency_formatter(x, pos):
-    return f"${int(x):,}"
+def currency_formatter(x,pos):
+    if pos:
+        return f"${int(x):,}"
 
 def create_graph(df):
     country_expenses = df.groupby('School Country')['Loan Amount(in USD)'].sum().reset_index()
     fig, ax = plt.subplots(figsize=(12, 6))
+    fig.suptitle('Total Expenses by Country')
     plt.bar(country_expenses['School Country'], country_expenses['Loan Amount(in USD)'], color='blue')
     plt.xlabel('School Country')
     plt.ylabel('Total Expenses')
-    plt.title('Total Expenses by Country')
     plt.xticks(rotation=90)  
     ax.yaxis.set_major_formatter(FuncFormatter(currency_formatter))
     plt.tight_layout()
